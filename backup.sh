@@ -6,6 +6,7 @@ dir=/home/user/MinecraftServer			        # directory of the minecraft server and
 out_dir=/home/user/MinecraftServer/backups	# directory for the backups, path does not have to exist
 world_name="world"                          # specify world name to backup, for more backup files add them below at XX
 
+# run script with nostop parameter to avoid server stop
 
 # ###############################################
 
@@ -15,10 +16,13 @@ world_name="world"                          # specify world name to backup, for 
 # enter the working directory
 cd "$dir" || exit 1
 
-# attempt server stop, if fail, exit script
-echo "Attempting server stop.."
-/bin/bash stop.sh || exit 2
-echo "..done"
+if [ "$1" != "nostop" ]
+then
+  # attempt server stop, if fail, exit script
+  echo "Attempting server stop.."
+  /bin/bash stop.sh || exit 2
+  echo "..done"
+fi
 
 # saving date and time
 echo "Requseting current date and time.."
@@ -62,9 +66,12 @@ echo "..done"
 
 cd "$dir" || exit 1
 
-echo "Starting server.."
-/bin/bash start.sh || exit 4
-echo "..done"
+if [ "$1" != "nostop" ]
+then
+  echo "Starting server.."
+  /bin/bash start.sh || exit 4
+  echo "..done"
+fi
 
 exit 0
 
