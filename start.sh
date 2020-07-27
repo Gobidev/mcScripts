@@ -2,10 +2,14 @@
 
 # -------- required inputs --------
 
-screen_name=MinecraftServer	# name of server screen, has to be the same in stop.sh
-jar_name=server.jar		# executable jar file that starts the server
-ram_m=2000			# max. RAM in MB dedicated to the server
-dir=/home/user/MinecraftServer	# directory where this file is located (has to be the same as the server)
+# name of server screen, has to be the same in stop.sh and backup.sh
+screen_name=MinecraftServer
+# executable jar file that starts the server
+jar_name=server.jar
+# max. RAM in MB dedicated to the server
+ram_m=2000
+# directory where this file is located (has to be the same as the server)
+dir=/home/user/MinecraftServer
 
 
 # ###############################################
