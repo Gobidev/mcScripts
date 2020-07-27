@@ -2,8 +2,12 @@
 
 # -------- required inputs --------
 
-screen_name=MinecraftServer	# name of server screen, has to be the same in start.sh
+# name of server screen, has to be the same in start.sh
+screen_name=MinecraftServer
 
+# Parameter 0 gives the shutdown reaseon:
+# i.e.["./stop.sh " for a backup"] will result in the output:
+# "The server will shut down in XXs for a backup!
 
 # ###############################################
 
@@ -23,25 +27,25 @@ else
 
   # send message to online players
   echo "Notifying players.."
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 30s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 30s%s!\r" "$1")"
   echo "Message 1 sent"
   sleep 15s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 15s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 15s%s!\r" "$1")"
   echo "Message 2 sent"
   sleep 5s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 10s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 10s%s!\r" "$1")"
   echo  "Message 3 sent"
   sleep 5s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 5s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 5s%s!\r" "$1")"
   echo  "Message 4 sent"
   sleep 2s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 3s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 3s%s!\r" "$1")"
   echo  "Message 5 sent"
   sleep 1s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 2s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 2s%s!\r" "$1")"
   echo  "Message 6 sent"
   sleep 1s
-  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 1s!\r")"
+  screen -drx "$screen_name" -X stuff "$(printf "say The server will shut down in 1s%s!\r" "$1")"
   echo  "Message 7 sent"
   sleep 1s
   echo "..done"
