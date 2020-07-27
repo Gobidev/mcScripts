@@ -31,7 +31,7 @@ if [ "$1" != "nostop" ]
 then
   # attempt server stop, if fail, exit script
   echo "Attempting server stop.."
-  /bin/bash stop.sh || exit 2
+  /bin/bash stop.sh " for a backup" || exit 2
   echo "..done"
 fi
 
@@ -51,8 +51,9 @@ echo "Copying files.."
 cp -r "$world_name" "$out_dir"/"$date_var"/ || exit 3
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # examples:
-# cp -r world_the_end "$out_dir"/"$date_var"/ || exit 4
-# cp -r world_nether "$out_dir"/"$date_var"/ || exit 4
+# cp -r world_the_end "$out_dir"/"$date_var"/ || exit 3
+# cp -r world_nether "$out_dir"/"$date_var"/ || exit 3
+# cp -r plugins/CoreProtect/database.db "$out_dir"/"$date_var"/ || exit 3
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 echo "..done"
 
