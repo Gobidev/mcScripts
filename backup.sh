@@ -2,10 +2,14 @@
 
 # -------- required inputs --------
 
-screen_name=MinecraftServer	                # name of server screen, has to be the same in both start.sh and stop.sh
-dir=/home/user/MinecraftServer			        # directory of the minecraft server and this file
-out_dir=/home/user/MinecraftServer/backups	# directory for the backups, path does not have to exist
-world_name="world"                          # specify world name to backup, for more backup files add them below at XX
+# name of server screen, has to be the same in both start.sh and stop.sh
+screen_name=MinecraftServer
+# directory of the minecraft server and this file
+dir=/home/user/MinecraftServer
+# directory for the backups, path does not have to exist
+out_dir=/home/user/MinecraftServer/backups
+# specify world name to backup, for more backup files add them below at XX
+world_name="world"
 
 # run script with nostop parameter to avoid server stop
 
@@ -20,7 +24,7 @@ cd "$dir" || exit 1
 # send save-all to server, fails if not running
 echo "Send save-all to server.."
 screen -drx "$screen_name" -X stuff "$(printf "save-all\r")"
-sleep 5s
+sleep 15s
 echo "..done"
 
 if [ "$1" != "nostop" ]
