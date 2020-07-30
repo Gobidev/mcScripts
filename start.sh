@@ -8,17 +8,16 @@ screen_name=MinecraftServer
 jar_name=paper.jar
 # max. RAM in MB dedicated to the server, recommended is 1000-1500M less than your physical memory
 ram_m=4000
+
+# ###############################################
+
+# ###############################################
+
+
 # directory where this file is located (has to be the same as the server)
-dir=/home/user/MinecraftServer
-
-
-# ###############################################
-
-# ###############################################
-
-
+# dir=/home/user/MinecraftServer
 # enter the working directory
-cd "$dir" || exit 1
+# cd "$dir" || exit 1
 
 # check for running server
 echo "Checking for running server.."

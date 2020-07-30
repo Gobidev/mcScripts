@@ -5,9 +5,7 @@
 # name of server screen, has to be the same in both start.sh and stop.sh
 screen_name=MinecraftServer
 # directory of the minecraft server and this file
-dir=/home/user/MinecraftServer
-# directory for the backups, path does not have to exist
-out_dir=/home/user/MinecraftServer/backups
+out_dir=../backups
 # specify world name to backup, for more backup files add them below at XX
 world_name="world"
 
@@ -17,9 +15,10 @@ world_name="world"
 
 # ###############################################
 
-
+# directory for the backups, path does not have to exist
+# dir=/home/user/MinecraftServer
 # enter the working directory
-cd "$dir" || exit 1
+# cd "$dir" || exit 1
 
 # send save-all to server, fails if not running
 echo "Send save-all to server.."
