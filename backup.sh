@@ -19,12 +19,16 @@ world_name="world"
 # dir=/home/user/MinecraftServer
 # enter the working directory
 # cd "$dir" || exit 1
+dir=$(pwd)
 
-# send save-all to server, fails if not running
-echo "Send save-all to server.."
-screen -drx "$screen_name" -X stuff "$(printf "save-all\r")"
-sleep 15s
-echo "..done"
+if [ "$1" != "nostop" ]
+then
+  # send save-all to server
+  echo "Send save-all to server.."
+  screen -drx "$screen_name" -X stuff "$(printf "save-all\r")"
+  sleep 15s
+  echo "..done"
+fi
 
 if [ "$1" != "nostop" ]
 then
@@ -58,6 +62,7 @@ echo "..done"
 
 # enter out_dir
 cd "$out_dir" || exit 1
+out_dir=$(pwd)
 
 # compress backup
 echo "Compressing backup.."
