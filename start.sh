@@ -14,10 +14,12 @@ ram_m=4000
 # ###############################################
 
 
+echo "running" > status
+
 # directory where this file is located (has to be the same as the server)
-# dir=/home/user/MinecraftServer
+dir=../
 # enter the working directory
-# cd "$dir" || exit 1
+cd "$dir" || exit 1
 
 # check for running server
 echo "Checking for running server.."
@@ -26,7 +28,7 @@ echo "..done"
 
 if [ "$check_screen" != "" ]
 then
-	echo "Server is already running at '$check_screen'! Exeting.."
+	echo "Server is already running at '$check_screen'! Exiting.."
 	exit 2
 else
 	echo "No running server found, starting.."

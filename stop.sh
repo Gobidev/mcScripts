@@ -18,6 +18,8 @@ screen_name=MinecraftServer
 echo "Checking for running server.."
 check_screen=$(screen -ls | grep "$screen_name")
 
+echo "stopped" > status
+
 if [ "$check_screen" == "" ]
 then
 	echo "No running server found! Exiting.."
@@ -52,6 +54,8 @@ else
 
   echo "Shutting down server.."
   screen -drx $screen_name -X stuff "$(printf "stop\r")"
+
+
   echo "..done, testing in 60s"
   sleep 60s
 

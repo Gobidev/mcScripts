@@ -16,9 +16,9 @@ world_name="world"
 # ###############################################
 
 # directory for the backups, path does not have to exist
-# dir=/home/user/MinecraftServer
+dir=../
 # enter the working directory
-# cd "$dir" || exit 1
+cd "$dir" || exit 1
 dir=$(pwd)
 
 if [ "$1" != "nostop" ]
