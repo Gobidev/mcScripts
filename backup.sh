@@ -39,7 +39,7 @@ then
 fi
 
 # saving date and time
-echo "Requseting current date and time.."
+echo "Requesting current date and time.."
 date_var=$(date +"%Y-%m-%d_%H-%M")
 echo "$date_var"
 echo "..done"
