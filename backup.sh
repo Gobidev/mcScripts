@@ -9,6 +9,9 @@ out_dir=../backups
 # specify world name to backup, for more backup files add them below at XX
 world_name="world"
 
+# Specify if used server software is paper, newest build will be downloaded automatically
+use_paper=y
+
 # run script with nostop parameter to avoid server stop
 
 # ###############################################
@@ -84,6 +87,12 @@ cd "$dir" || exit 1
 
 if [ "$1" != "nostop" ]
 then
+  if [ "$use_paper" = y ]; then
+    echo "Updating paper.."
+    /bin/bash update_paper.sh
+    echo "..done"
+  fi
+
   echo "Starting server.."
   /bin/bash start.sh || exit 4
   echo "..done"
