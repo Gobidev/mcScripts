@@ -24,14 +24,12 @@ dir=../
 cd "$dir" || exit 1
 dir=$(pwd)
 
-if [ "$1" != "nostop" ]
-then
-  # send save-all to server
-  echo "Send save-all to server.."
-  screen -drx "$screen_name" -X stuff "$(printf "save-all\r")"
-  sleep 15s
-  echo "..done"
-fi
+
+# send save-all to server
+echo "Send save-all to server.."
+screen -drx "$screen_name" -X stuff "$(printf "save-all\r")"
+sleep 15s
+echo "..done"
 
 if [ "$1" != "nostop" ]
 then
