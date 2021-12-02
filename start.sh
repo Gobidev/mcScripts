@@ -64,8 +64,8 @@ else
   		fi
 	fi
 
-	# check if screen is running after 5s
-	sleep 5s
+	# check if screen is running after 1s
+	sleep 1s
 	check_screen=$(screen -ls | grep $screen_name)
 	if [ "$check_screen" != "" ]
 	then
