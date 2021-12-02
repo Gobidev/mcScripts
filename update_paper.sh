@@ -3,7 +3,7 @@
 # This script looks for the newest papermc build of a given version in the v2 api
 # and replaces paper.jar with it
 
-minecraft_version="1.17.1"
+minecraft_version="1.18"
 
 echo "Looking for builds for minecraft version $minecraft_version.."
 newest_paper_build="$(curl -s https://papermc.io/api/v2/projects/paper/versions/$minecraft_version/ | jq '.builds[-1]')"
