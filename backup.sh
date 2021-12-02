@@ -5,12 +5,12 @@
 # name of server screen, has to be the same in both start.sh and stop.sh
 screen_name=MinecraftServer
 # directory of the minecraft server and this file
-out_dir=../backups
+out_dir=backups
 # specify world name to backup, for more backup files add them below at XX
 world_name="world"
 
 # Specify if used server software is paper, newest build will be downloaded automatically
-use_paper=y
+use_paper=n
 
 # run script with nostop parameter to avoid server stop
 
@@ -55,12 +55,10 @@ echo "..done"
 # copy files, standard is just the world, for more files add them here witht the same syntax
 echo "Copying files.."
 cp -r "$world_name" "$out_dir"/"$date_var"/ || exit 3
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-# examples:
-# cp -r world_the_end "$out_dir"/"$date_var"/ || exit 3
-# cp -r world_nether "$out_dir"/"$date_var"/ || exit 3
-# cp -r plugins/CoreProtect/database.db "$out_dir"/"$date_var"/ || exit 3
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#cp -r world_the_end "$out_dir"/"$date_var"/ || exit 3
+#cp -r world_nether "$out_dir"/"$date_var"/ || exit 3
+#cp -r plugins/CoreProtect/database.db "$out_dir"/"$date_var"/ || exit 3
+
 echo "..done"
 
 # enter out_dir
