@@ -12,6 +12,9 @@ world_name="world"
 # Specify if used server software is paper, newest build will be downloaded automatically
 use_paper=n
 
+# Specify if latest file should be created
+create_latest_file=n
+
 # run script with nostop parameter to avoid server stop
 
 # ###############################################
@@ -74,10 +77,13 @@ rm -rf "$date_var"
 echo "..done"
 
 # copy to latest
-echo "Creating latest file.."
-rm "latest.tar.gz" || echo "Latest file did not exist."
-cp "${date_var}".tar.gz "latest.tar.gz" || exit 3
-echo "..done"
+if [ "$create_latest_file" != "n" ]
+then
+  echo "Creating latest file.."
+  rm "latest.tar.gz" || echo "Latest file did not exist."
+  cp "${date_var}".tar.gz "latest.tar.gz" || exit 3
+  echo "..done"
+fi
 
 cd "$dir" || exit 1
 
